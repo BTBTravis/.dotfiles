@@ -4,8 +4,9 @@ dotfiles
 A collection of my personal dotfiles.
 
 Including configuration for:
-vim
-
+1. vim
+1. slate
+1. fish shell
 
 
 Installation

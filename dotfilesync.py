@@ -21,9 +21,10 @@ print "...done"
 
 # move files into backup and create syslinks in there place
 for fileinfo in reader:
-    print 'Moving any existing dotfiles into ' + backup
+    print 'Moving any existing ' + fileinfo[1] + ' into ' + backup
     subprocess.call('mv ' + fileinfo[1] + ' ' + backup, shell=True)
-    print "Creating symlink to $file in home directory."
+    print "Creating symlink to " + fileinfo[0] + " in home directory."
+    # TODO: create the needed path folders if not present
     subprocess.call('ln -s ' + selfpath + '/' + fileinfo[0] + ' ' + fileinfo[1], shell=True)
 print 'done'
 
