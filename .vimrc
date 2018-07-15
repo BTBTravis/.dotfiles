@@ -37,7 +37,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories= ['~/.vim/UltiSnips', 'UltiSnips']
+
+" If we are on Linix use pyton version 3 if on mac use version 2
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
 let g:UltiSnipsUsePythonVersion = 2
+elseif os == "Linux"
+let g:UltiSnipsUsePythonVersion = 3
+endif
+
 let g:ultisnips_javascript = {
       \ 'keyword-spacing': 'always',
       \ 'semi': 'always',
