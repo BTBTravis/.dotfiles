@@ -117,3 +117,6 @@ alias club="~/projects/club/bin/ab"
 alias rmi "rm -i"
 alias mvi "mv -i"
 alias q "exit"
+
+source ~/dotfiles/westwing_alias.sh
+
