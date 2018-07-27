@@ -2,21 +2,17 @@
 
 #Source Paths
 readonly username="t.shears"
-readonly dockerSorucePath="/Users/$username/Projects/club/"
+readonly dockerSorucePath="/Users/$username/projects/club/"
 
 #General
 alias ww-alice="cd ${dockerSorucePath}/sources"
 alias ab="${dockerSorucePath}bin/ab $1"
 alias ww-rmcache="ab tools/ww-rmcache";
 alias ww-conf="ab tools/ww-conf";
-alias ll='ls -l'
 
 #Unit test
 alias ww-alice-test="runAliceTest"
 alias ww-bob-test="runBobTest"
-
-#GIT
-alias addReview='addReview'
 
 # MySQL
 alias mysql-nuts-stage='mysql -h stagedb1.wwdus.local -u st_bob_nuts1 -p stage_bob_nuts1'
@@ -36,9 +32,6 @@ runAll() {
     ab tools/ww-rmcache
 }
 
-addReview() {
-    echo "https://git.westwing.eu/westwing/club/merge_requests/new?utf8=%E2%9C%93&merge_request%5Bsource_project_id%5D=169&merge_request%5Bsource_branch%5D=feature%2Ftickets%2F$1&merge_request%5Btarget_project_id%5D=169&merge_request%5Btarget_branch%5D=master"
-}
 
 exportEnv() {
     if [ $( docker-machine status club | grep -i "running" | wc -l ) != "0" ]
