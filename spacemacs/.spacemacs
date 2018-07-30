@@ -51,6 +51,7 @@ values."
      git
      markdown
      org
+     themes-megapack
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -327,7 +328,11 @@ you should place your code here."
   ;; Visual line navigation for textual modes (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
   ;; (spacemacs/set-leader-keys "C-]" 'forward-char)
   (spacemacs/set-leader-keys "fw" 'save-buffer)
-
+  (defun open-with-phpstorm ()
+    "Opens current file with PHPStorm"
+    (interactive)
+    (shell-command
+     (concat "/usr/local/bin/pstorm " buffer-file-name)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

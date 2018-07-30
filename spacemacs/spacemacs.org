@@ -10,11 +10,14 @@
  - [ ] PHP Snippets
 ** TODO Add script / function to ssh into club fpm container and gulp sass
  Needs to print the results some how so we can tell if there are any errors so maybe it opens a shell, term/eshell, and runs the needed commands
-** TODO Add some themes
-   via theme layer?
-** TODO setup script to launch current emacs file in php storem for debugging
+ Maybe this could be part of a west wing layer? that has all the shell commands stuff from Gabor's bash alaises
+** DONE setup script to launch current emacs file in php storem for debugging
+   CLOSED: [2018-07-30 Mon 21:04]
    PHP bin location: /usr/local/bin/pstorm
    executing external commands https://www.emacswiki.org/emacs/ExecuteExternalCommand
+** DONE Add some themes
+   CLOSED: [2018-07-30 Mon 20:26]
+   via theme layer?
 ** DONE Add auto compleation
    CLOSED: [2018-07-23 Mon 08:10]
  [[https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/ycmd][You Complete Me Layer]] seems like a good place to start its runs externally to emacs and communicates with the software much unline how its built into vim I think. 
