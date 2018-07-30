@@ -1,0 +1,96 @@
+#+TITLE: Spacemacs Customization
+#+AUTHOR: Travis Shears
+#+EMAIL: travis.shears@westwing.de
+
+* TODOs
+** TODO Add old snippets
+   YAS - Ya snippets is the built in but its kinda an ass pain to pull up snippets. Apparently there is snippet support for auto-complete??
+ - [ ] Look into auto completion for snippets
+ - [ ] JS Snippets [[https://gist.githubusercontent.com/BTBTravis/5b7ae1b83d1a6edbc6dae4328cc529fb/raw/e796f5541f61cd26adf601923c381d1058926b9e/javascript.snippets][gist containing js snippets]]
+ - [ ] PHP Snippets
+** TODO Add script / function to ssh into club fpm container and gulp sass
+ Needs to print the results some how so we can tell if there are any errors so maybe it opens a shell, term/eshell, and runs the needed commands
+** TODO Add some themes
+   via theme layer?
+** TODO setup script to launch current emacs file in php storem for debugging
+   PHP bin location: /usr/local/bin/pstorm
+   executing external commands https://www.emacswiki.org/emacs/ExecuteExternalCommand
+** DONE Add auto compleation
+   CLOSED: [2018-07-23 Mon 08:10]
+ [[https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btools/ycmd][You Complete Me Layer]] seems like a good place to start its runs externally to emacs and communicates with the software much unline how its built into vim I think. 
+ Possibly better layer would be 'auto complete' mentioned by Mike Zamansky
+ *Enabled auto-complete layer checkout [[https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bcompletion/auto-completion][docs]]
+** DONE Test tags are working in php and add them if needed
+   CLOSED: [2018-07-30 Mon 20:09]
+  Spacemacs alrady has built in tag system I think.
+  + guten tags??
+  + ctags??
+
+** DONE Checkout https://spin.atomicobject.com/2017/08/31/awesome-spacemacs-features/
+   CLOSED: [2018-07-30 Mon 20:10]
+
+** DONE Move this into a ~/spacemacs.org file
+   CLOSED: [2018-07-30 Mon 20:10]
+
+** DONE install ac-ispell@auto
+   CLOSED: [2018-07-30 Mon 10:11]
+   --> installing package: ac-ispell@auto-completion... [1/2]
+   Package ac-ispell is unavailable. Is the package name misspelled?
+   Problem:
+     spelling packing not loading properly
+   Solution: 
+     seems to be linked to this package being for auto-complete and we are currently using company so I somply disabled the spell check layer
+
+** DONE install php-extras@php
+   CLOSED: [2018-07-30 Mon 10:10]
+   Problem:
+   --> installing package: php-extras@php... [2/2]
+   An error occurred while installing php-extras (error: (wrong-type-argument package-desc nil))
+   Fix: 
+   replace 'github' installed package with locally installed one
+   File Location: [[file:~/.emacs.d/layers/+lang/php/packages.el][file:~/.emacs.d/layers/+lang/php/packages.el]]
+   
+   Write a shell script to do this automatically?
+   Started in [[file:~/dotfiles/php-extra-fix.sh::#!/usr/bin/env%20bash][fix-php-extras.sh]]   
+
+   current repo location:
+   ./play/php-extras                                                                           │drwxr-xr-x   9 t.shears  163044306   288B Jul 25 16:51 dotfiles_old
+
+   should be cloned to ~/dotfiles/spacemacs-fixes/instead
+
+** DONE setup xdebug for PHP Strome again
+   CLOSED: [2018-07-30 Mon 10:33]
+   ask Jake
+   *Run/Debug Configurations*
+   name: alice
+   server: docker
+   ide key: alice, bob, cli
+   default ports..
+   use ip from: $(docker-machine ip club)...
+   *Path mapping*
+   perferences server:/application = local:/sources
+   
+
+* Reminders
+  mc/mark-lines for mutiple curser stuffs [[https://github.com/magnars/multiple-cursors.el][repo]]
+  *magit-ediff* to solve git conflicts via *e* over file unmerged file in magit
+  *SPC m g d* jump to tag definition - [[https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Btags/gtags][tag docs]]
+  *follow-mode* on long CSS docs
+  *kill-some-buffers* is handy to clean up a session between tasks without having to close
+** ORG mode
+  *C-c C-l* To insert link
+  *C-c l* To store link
+** Searching
+    *SPC s e* search current doc for yanked word, if you can't find it in current doc follow that up with "Spc /" then paste to into 
+    *SPC s a f* ag search certin dir 
+    *C-c C-e* While searching to pop out of search buffer this can be followed up by at *C-c C-C* to save the changes??
+    *find-file-at-point* with cursor over a file name no matter what mode you are in
+
+* Resources 
+- [ ] Planet Emacs
+- [X] [[https://gitter.im/syl20bnr/spacemacs][Gitter Chat]]
+- [X] Youtube: Mike Zamansky 
+- [ ] Youtube: raineer carnign org mode stuff uncle dave
+- [ ] Youtube: build fun things
+- [ ] [[https://gist.github.com/davoclavo/d41cd86ffda22f1649e4][Cheatsheet]]
+
