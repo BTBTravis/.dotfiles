@@ -114,11 +114,11 @@ export LANG=en_US.UTF-8
 # init ruby env on zsh launch
 eval "$(rbenv init -)"
 
-alias e="eval $(docker-machine env club)"
+alias e="~/dotfiles/ww-setup-env.sh"
 alias club="~/projects/club/bin/ab"
 alias rmi "rm -i"
 alias mvi "mv -i"
 alias q "exit"
+#alias l "ls -gaFh"
 
 source ~/dotfiles/westwing_alias.sh
-
