@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/t.shears/.oh-my-zsh"
+export ZSH="/home/travis/.oh-my-zsh"
 export EDITOR='vim'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -111,8 +111,6 @@ export LANG=en_US.UTF-8
 # add fzf commands <Ctrl + t> for file search, <Ctrl + r> search command history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# init ruby env on zsh launch
-eval "$(rbenv init -)"
 
 alias e="~/dotfiles/ww-setup-env.sh"
 alias club="~/projects/club/bin/ab"
@@ -121,4 +119,4 @@ alias mvi "mv -i"
 alias q "exit"
 #alias l "ls -gaFh"
 
-source ~/dotfiles/westwing_alias.sh
+#source ~/dotfiles/westwing_alias.sh
