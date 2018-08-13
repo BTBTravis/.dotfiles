@@ -7,3 +7,4 @@ git/.gitconfig,~/.gitconfig
 spacemacs/.spacemacs,~/.spacemacs
 git/.gitignore_global,~/.gitignore_global
 .Xmodmap,~/.Xmodmap
+.xinitrc,~/.xinitrc
