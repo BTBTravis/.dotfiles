@@ -6,3 +6,4 @@ git/.gitconfig,~/.gitconfig
 .zshrc,~/.zshrc
 spacemacs/.spacemacs,~/.spacemacs
 git/.gitignore_global,~/.gitignore_global
+.Xmodmap,~/.Xmodmap
