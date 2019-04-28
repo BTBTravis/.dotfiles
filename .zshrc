@@ -2,17 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/t.shears/.oh-my-zsh"
-#export EDITOR='vim'
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/local/bin/nvim"
 export VISUAL="/usr/local/bin/nvim"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-# ZSH_THEME="agnoster"
 ZSH_THEME="robbyrussell"
-# Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
 # looking in ~/.oh-my-zsh/themes/
@@ -117,13 +114,11 @@ export LANG=en_US.UTF-8
 eval "$(rbenv init -)"
 eval $(thefuck --alias)
 
-alias e="~/dotfiles/ww-setup-env.sh"
-alias club="~/projects/club/bin/ab"
+## Alias section 
+alias cp "cp -i"                                                # Confirm before overwriting something
 alias rmi "rm -i"
 alias mvi "mv -i"
 alias q "exit"
-alias docc "docker-compose"
-alias doc "docker"
 #alias l "ls -gaFh"
 alias love="/Applications/love.app/Contents/MacOS/love"
 

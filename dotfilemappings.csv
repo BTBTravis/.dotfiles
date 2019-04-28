@@ -9,3 +9,6 @@ git/.gitignore_global,~/.gitignore_global
 doom/config.el,~/.doom.d/config.el
 doom/init.el,~/.doom.d/init.el
 doom/packages.el,~/.doom.d/packages.el
+//linix only
+.Xmodmap,~/.Xmodmap
+.xinitrc,~/.xinitrc
