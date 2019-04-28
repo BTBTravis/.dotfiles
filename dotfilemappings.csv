@@ -1,8 +1,0 @@
-.vimrc,~/.vimrc
-.slate,~/.slate
-config.fish,~/.config/fish/config.fish
-.tmux.conf,~/.tmux.conf
-git/.gitconfig,~/.gitconfig
-.zshrc,~/.zshrc
-spacemacs/.spacemacs,~/.spacemacs
-git/.gitignore_global,~/.gitignore_global
