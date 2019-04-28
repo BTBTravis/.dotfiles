@@ -26,39 +26,51 @@ config undoOps move,resize
 # The HYPER key (bound using PCKeyboardHack and KeyRemap4Macbook)
 # ======================================
  
-alias hyper cmd;e
+# alias hyper cmd;e
+# alias hyper cmd;shift
 
 
-bind space:${hyper} hint FGJKRTYUIOPCVB # use whatever keys you want
-bind g:cmd grid padding:5 0:6,2 1:8,3
+# bind space:${hyper} hint FGJKRTYUIOPCVB # use whatever keys you want
+# bind g:cmd grid padding:5 0:6,2 1:8,3
 
 # Abstract positions
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias almostfull move screenOriginX+200;screenOriginY+200 screenSizeX-400;screenSizeY-400
 alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
 alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+alias lilleft move screenOriginX+200;screenOriginY+200 (screenSizeX/2)-200;screenSizeY-400
+alias lilright move screenOriginX+(screenSizeX/2);screenOriginY+200 (screenSizeX/2)-200;screenSizeY-400
 
 
 # Location Bindings
-bind 1:${hyper} ${bottomleft}
-bind 2:${hyper} push bottom bar-resize:screenSizeY/2
-bind 3:${hyper} ${bottomright}
-bind 4:${hyper} ${lefthalf}
-bind 5:${hyper} ${full}
-bind 6:${hyper} ${righthalf}
-bind 7:${hyper} ${topleft}
-bind 8:${hyper} push top bar-resize:screenSizeY/2
-bind 9:${hyper} ${topright}
+bind j:f19 ${almostfull}
+bind k:f19 ${full}
+bind h:f19 ${lefthalf}
+bind l:f19 ${righthalf}
+bind s:f18 ${lilleft}
+bind g:f18 ${lilright}
+bind h:cmd:f19 throw left 
+bind l:cmd:f19 throw right 
+# bind 1:${hyper} ${bottomleft}
+# bind 2:${hyper} push bottom bar-resize:screenSizeY/2
+# bind 3:${hyper} ${bottomright}
+# bind 4:${hyper} ${lefthalf}
+# bind 5:${hyper} ${full}
+# bind 6:${hyper} ${righthalf}
+# bind 7:${hyper} ${topleft}
+# bind 8:${hyper} push top bar-resize:screenSizeY/2
+# bind 9:${hyper} ${topright}
 
-bind z:${hyper} undo
+
+# bind z:${hyper} undo
 
 # Throws
-bind n:${hyper} throw next
-bind h:${hyper} throw left resize
-bind l:${hyper} throw right resize
+# bind u:${hyper} throw next
+# bind H:f19 throw left resize
 #bind right:${hyper} throw right resize
 #bind left:${hyper}  throw left  resize
 
@@ -66,18 +78,18 @@ bind l:${hyper} throw right resize
 #bind g:${hyper} throw 0 resize
 
 # Slate
-bind backslash:${hyper} relaunch
+# bind backslash:${hyper} relaunch
 
 # snapshots
 
-bind q:${hyper} snapshot snap1 save-to-disk;stack
-bind a:${hyper} activate-snapshot snap1 
+# bind q:${hyper} snapshot snap1 save-to-disk;stack
+# bind a:${hyper} activate-snapshot snap1 
 
-bind w:${hyper} snapshot snap2 save-to-disk;stack
-bind s:${hyper} activate-snapshot snap2 delete
+# bind w:${hyper} snapshot snap2 save-to-disk;stack
+# bind s:${hyper} activate-snapshot snap2 delete
 
-bind e:${hyper} snapshot snap3 save-to-disk;stack
-bind d:${hyper} activate-snapshot snap3 delete
+# bind e:${hyper} snapshot snap3 save-to-disk;stack
+# bind d:${hyper} activate-snapshot snap3 delete
 
 
 # Will bind the keystroke ctrl-1 to create a snapshot called `theName`, save that snapshot to disk, and treat it as a stack so you can hit the keystroke multiple times to push snapshots onto the stack.

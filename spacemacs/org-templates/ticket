@@ -1,0 +1,8 @@
+** TODO [%^{Ticket}] %^{Title} 
+  :PROPERTIES:
+  :STARTING_SPRINT: %^{Sprint}
+  :JIRA: https://westwing.jira.com/browse/%\1 
+  :CREATED: %U
+  :END:
+
+%?
