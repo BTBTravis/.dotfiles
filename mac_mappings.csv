@@ -1,0 +1,8 @@
+.vimrc,.vimrc
+.slate,.slate
+.tmux.conf,.tmux.conf
+.gitconfig,.gitconfig
+.zshrc,.zshrc
+spacemacs/.spacemacs,.spacemacs
+.gitignore_global,.gitignore_global
+.nvimrc,.config/nvim/init.vim 

@@ -118,11 +118,12 @@ eval $(thefuck --alias)
 alias cp "cp -i"                                                # Confirm before overwriting something
 alias rmi "rm -i"
 alias mvi "mv -i"
-alias q "exit"
+alias q="exit"
+alias e='$EDITOR'
 #alias l "ls -gaFh"
 alias love="/Applications/love.app/Contents/MacOS/love"
 
-source ~/dotfiles/westwing_alias.sh
+source ~/dotfiles/mac/scripts/westwing_alias.sh
 
 source ~/.bashrc_gpg 
 
@@ -161,3 +162,4 @@ if [ -f '/Users/t.shears/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/t.shea
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/t.shears/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/t.shears/google-cloud-sdk/completion.zsh.inc'; fi
+export GOOGLE_CLOUD_KEYFILE_JSON=~/.google-cloud-platform/side-project-k8s-292014f8d773.json
