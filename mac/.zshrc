@@ -1,5 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+fpath=(~/ww_dotfiles $fpath)
+autoload -Uz _wwhelper.zsh
+autoload -Uz _wwhelper
+
+zstyle ':completion:*' verbose yes
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -123,8 +128,6 @@ alias e='$EDITOR'
 #alias l "ls -gaFh"
 alias love="/Applications/love.app/Contents/MacOS/love"
 
-source ~/dotfiles/mac/scripts/westwing_alias.sh
-
 source ~/.bashrc_gpg 
 
 #Importing the shop dev_env environmental variables to zsh.
@@ -163,3 +166,8 @@ if [ -f '/Users/t.shears/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/t.shea
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/t.shears/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/t.shears/google-cloud-sdk/completion.zsh.inc'; fi
 export GOOGLE_CLOUD_KEYFILE_JSON=~/.google-cloud-platform/side-project-k8s-292014f8d773.json
+
+source ~/ww_dotfiles/env.sh
+#export fpath=("$HOME""/ww_dotfiles ""$fpath")
+#autoload -U compinit
+#compinit
