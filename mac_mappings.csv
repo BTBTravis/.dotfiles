@@ -6,3 +6,4 @@
 spacemacs/.spacemacs,.spacemacs
 .gitignore_global,.gitignore_global
 .nvimrc,.config/nvim/init.vim 
+btb.zsh-theme,.oh-my-zsh/themes/btb.zsh-theme
