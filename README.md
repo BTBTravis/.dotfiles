@@ -22,3 +22,8 @@ Everything is setup to for the repo to be placed in the users home dir under the
 1. `./write.sh` run the script symlink the files
 
 *note* `write.sh` script backups files to a tar in `/tmp` should you make a mistake
+
+
+## Helpful Links
+* Bash colors: https://jonasjacek.github.io/colors/
+* Inspiration: https://www.reddit.com/r/unixporn
