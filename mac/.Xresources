@@ -1,21 +1,24 @@
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*termName: xterm-color
 xterm*eightBitInput: false
-# xterm*font: *-fixed-*-*-*-18-*
-# xterm*font: Monaco:pixelsize=18
-# xterm*faceName: Monaco
-# xterm*faceSize: 14
+!xterm*font: *-fixed-*-*-*-18-*
+!xterm*font: Monaco:pixelsize=18
+!xterm*faceName: Monaco
+!xterm*faceSize: 14
 xterm*savelines: 16384
 xterm*loginshell: true
 
-# xterm*renderFont: true
-# xterm*faceName: DejaVu Sans Mono Book
-# xterm*font: -*-dejavu sans-medium-r-*-*-11-*-*-*-*-*-*-*
+!xterm*renderFont: true
+!xterm*faceName: DejaVu Sans Mono Book
+!xterm*font: -*-dejavu sans-medium-r-*-*-11-*-*-*-*-*-*-*
 
-# xterm*faceName: DejaVuSansMono
+!xterm*faceName: DejaVuSansMono
 xterm*faceName: Ubuntu Mono derivative Powerline
 xterm*faceSize: 14
+xterm*vt100.translations: #override \
+    Shift Mod1 <Key> V: insert-selection(CLIPBOARD)
 
+!Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
 
 !BLK Cursor
