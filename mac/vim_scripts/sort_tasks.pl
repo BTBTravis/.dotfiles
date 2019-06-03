@@ -8,11 +8,16 @@ my $todo_type = "todo";
 my $done_type = "done";
 my $last_task_type = "none";
 
+my $firstLine = <STDIN>;
+my $indent = $firstLine =~ s/^(\s+).+/$1/rg;
+$indent = length($indent);
+$indent--;
+
 while (<>) {
-    if (/^- \[X/) {
+    if (/^\s{$indent}- \[X/) {
         push @done_tasks, $_;
         $last_task_type = $done_type;
-    } elsif (/^- \[/) {
+    } elsif (/^\s{$indent}- \[/) {
         push @todo_tasks, $_;
         $last_task_type = $todo_type;
     } elsif ($last_task_type eq $todo_type && @todo_tasks > 0) {
