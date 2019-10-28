@@ -24,3 +24,11 @@
 
 [mergetool "nfugitive"]
     cmd = nvim -f -c "Gdiff" "$MERGED"
+
+[url "ssh://git@git.westwing.eu/"]
+    insteadOf = https://git.westwing.eu/
+
+
+[remote "origin"]
+    fetch = +refs/environments/*:refs/remotes/origin/environments/*
+
