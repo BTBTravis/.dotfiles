@@ -21,46 +21,59 @@
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+" Utility
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+" Generic Programming Support
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'wincent/command-t'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'purescript-contrib/purescript-vim'
-" Plug 'SirVer/ultisnips'
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories= ['~/.vim/UltiSnips', 'UltiSnips']
 
-" If we are on Linix use pyton version 3 if on mac use version 2
-let os = substitute(system('uname'), "\n", "", "")
-if os == "Darwin"
-let g:UltiSnipsUsePythonVersion = 2
-elseif os == "Linux"
-let g:UltiSnipsUsePythonVersion = 3
-endif
-
-let g:ultisnips_javascript = {
-      \ 'keyword-spacing': 'always',
-      \ 'semi': 'always',
-      \ 'space-before-function-paren': 'always',
-      \ }
+" Theming
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'itchyny/lightline.vim'
+
+" PHP Support
 Plug 'StanAngeloff/php.vim'
 Plug 'shawncplus/phpcomplete.vim'
+
+" PureScript Support
+Plug 'purescript-contrib/purescript-vim'
+
+
+" Under review
+"Plug 'wincent/command-t'
+"Plug 'vim-scripts/ReplaceWithRegister'
+"Plug 'MattesGroeger/vim-bookmarks'
+
+" Plug 'SirVer/ultisnips'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsSnippetDirectories= ['~/.vim/UltiSnips', 'UltiSnips']
+
+" If we are on Linix use pyton version 3 if on mac use version 2
+
+"let os = substitute(system('uname'), "\n", "", "")
+"if os == "Darwin"
+"let g:UltiSnipsUsePythonVersion = 2
+"elseif os == "Linux"
+"let g:UltiSnipsUsePythonVersion = 3
+"endif
+
+"let g:ultisnips_javascript = {
+      "\ 'keyword-spacing': 'always',
+      "\ 'semi': 'always',
+      "\ 'space-before-function-paren': 'always',
+      "\ }
 "Plug 'ludovicchabant/vim-gutentags'
 "Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'mileszs/ack.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+"Plug '/usr/local/opt/fzf'
+"Plug 'junegunn/fzf.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif

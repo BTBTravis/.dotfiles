@@ -39,25 +39,43 @@ let mapleader = ","
 " Plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 call plug#begin('~/.vim/plugged')
-Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Utility
 Plug 'tpope/vim-fugitive' " slightly better git commands
+Plug 'junegunn/goyo.vim' " distraction free writing
+Plug 'scrooloose/nerdcommenter' " comment lines out with <Leader>cc
+Plug 'vimwiki/vimwiki' " power up your personal wiki
+Plug 'scrooloose/nerdtree' " :NERDTree to view file explorer
+Plug 'ctrlpvim/ctrlp.vim' " better auto complete
+
+" File searching and buffer managment
+Plug 'moll/vim-bbye' " use :Bdelete to delete buffer without closing window
+Plug 'mileszs/ack.vim' " search nearby files with ag
+
+" Generic Programming Support
 Plug 'tpope/vim-surround' " <cs'!> to change the surrounding ' to !
 Plug 'tpope/vim-repeat' " improves . repetes to not only support native features
-Plug 'scrooloose/nerdcommenter' " comment lines out with <Leader>cc
-Plug 'moll/vim-bbye' " use :Bdelete to delete buffer without closing window
+Plug 'bronson/vim-trailing-whitespace' " highlights trailing white spaces
+
+" Theming
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'mhinz/vim-signify' " show lines changed in working git dir
-Plug 'vimwiki/vimwiki' " power up your personal wiki
-Plug 'ctrlpvim/ctrlp.vim' " better auto complete
-Plug 'mileszs/ack.vim' " search nearby files with ag
+
+" PHP Support
+
+" PureScript Support
+
+" Under review
 Plug 'AndrewRadev/splitjoin.vim' " switch statments between single and multiline  <g><S> and <g><J>
 Plug 'SirVer/ultisnips' " snippets engine
-Plug 'bronson/vim-trailing-whitespace' " highlights trailing white spaces
 Plug 'sheerun/vim-polyglot' " syntax highlighting for basically every lang
+Plug 'majutsushi/tagbar'
+"Plug 'jakedouglas/exuberant-ctags'
 
-" In review
-Plug 'vim-scripts/ReplaceWithRegister' " https://github.com/vim-scripts/ReplaceWithRegister
-Plug 'scrooloose/nerdtree' " :NERDTree to view file explorer
-Plug 'ervandew/supertab' " better completiong aka everything with <Tab>
+
+"Plug 'Shougo/denite.nvim'
+"Plug 'ervandew/supertab' " better completiong aka everything with <Tab>
+"Plug 'vim-scripts/ReplaceWithRegister' " https://github.com/vim-scripts/ReplaceWithRegister
 
 call plug#end()
 
@@ -107,6 +125,8 @@ function! SafeOpenNerdTree()
   endif
 endfunction
 
+set tags=./tags;$HOME,tags;$HOME
+
 " placeholder magic
 nnoremap <Space><Space> <Esc>/<++<CR>"_c4l
 nnoremap <Space>d <Esc>l/<++<CR>dd
@@ -118,3 +138,21 @@ vnoremap <Space>c "cy<Esc>oconsole.log('<Esc>"cpa', <Esc>"cpa);<Esc>
 
 " yank file name
 nnoremap <Leader>f :let @" = expand("%")<CR>
+
+" kill files aka remove delete it from disk remove it from args and delete the buffer
+nnoremap <Leader>d :!rm %<CR>:argdelete %<CR>:bd<CR>
+
+noremap <leader>g :new<CR>:read ! ag "
+
+nnoremap <Leader>pb :CtrlPBuffer<CR>
+nnoremap <Leader>pf :CtrlP<CR>
+nnoremap <Leader>pr :CtrlPMRU<CR>
+nnoremap <Leader>pc :CtrlPChange<CR>
+
+vnoremap <Leader>s y:Ack <C-r>=fnameescape(@")<CR><CR>
+
+" Remap arrow keys to resize window
+nnoremap <Up>    :resize -2<CR>
+nnoremap <Down>  :resize +2<CR>
+nnoremap <Left>  :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>

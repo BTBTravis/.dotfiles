@@ -7,13 +7,17 @@ my @todo_tasks;
 my $todo_type = "todo";
 my $done_type = "done";
 my $last_task_type = "none";
-
-my $firstLine = <STDIN>;
-my $indent = $firstLine =~ s/^(\s+).+/$1/rg;
-$indent = length($indent);
-$indent--;
+my $has_cacled_indent = 0;
+my $indent = 0;
 
 while (<>) {
+    if (not $has_cacled_indent) {
+        $indent = $_ =~ s/^(\s+).+/$1/rg;
+        $indent = length($indent);
+        $indent--;
+        $has_cacled_indent = 1;
+    }
+
     if (/^\s{$indent}- \[X/) {
         push @done_tasks, $_;
         $last_task_type = $done_type;
