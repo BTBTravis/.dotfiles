@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+fpath=(~/projects/shop/p100/dev_env $fpath)
+
 fpath=(~/ww_dotfiles $fpath)
 autoload -Uz _wwhelper.zsh
 autoload -Uz _wwhelper
@@ -88,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8 
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -120,20 +122,24 @@ export LANG=en_US.UTF-8
 eval "$(rbenv init -)"
 eval $(thefuck --alias)
 
-## Alias section 
+## Alias section
 alias cp "cp -i"                                                # Confirm before overwriting something
 alias rmi "rm -i"
 alias mvi "mv -i"
 alias q="exit"
 alias e='$EDITOR'
+alias ls="test \$(exa --tree --level=2 --long | wc -l) -gt 50 && exa --long --git ||  exa --tree --level=2 --long --git"
+#alias ls="test -gt $(exa --tree --level=2 --long --git"
 #alias l "ls -gaFh"
-alias love="/Applications/love.app/Contents/MacOS/love"
+#alias love="/Applications/love.app/Contents/MacOS/love"
+#alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
 
-source ~/.bashrc_gpg 
+source ~/.bashrc_gpg
+source ~/.profile
 
 #Importing the shop dev_env environmental variables to zsh.
-if [ -f ~/.bashrc_shop ]; then 
-    source ~/.bashrc_shop 
+if [ -f ~/.bashrc_shop ]; then
+    source ~/.bashrc_shop
 fi
 
 # tabtab source for serverless package
@@ -172,3 +178,4 @@ source ~/ww_dotfiles/env.sh
 #export fpath=("$HOME""/ww_dotfiles ""$fpath")
 #autoload -U compinit
 #compinit
+alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
