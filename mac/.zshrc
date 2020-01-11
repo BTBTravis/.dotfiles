@@ -128,7 +128,10 @@ alias rmi "rm -i"
 alias mvi "mv -i"
 alias q="exit"
 alias e='$EDITOR'
-alias ls="test \$(exa --tree --level=2 --long | wc -l) -gt 50 && exa --long --git ||  exa --tree --level=2 --long --git"
+#alias ls="test \$(exa --tree --level=2 --long | wc -l) -gt 40 && exa --long --git ||  exa --tree --level=2 --long --git"
+alias l="exa --long"
+alias lt="exa --tree --long --level=2"
+#alias ls="exa --tree --level=2 --long"
 #alias ls="test -gt $(exa --tree --level=2 --long --git"
 #alias l "ls -gaFh"
 #alias love="/Applications/love.app/Contents/MacOS/love"
@@ -144,10 +147,10 @@ fi
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+#[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+#[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 
 #bindkey -v
@@ -178,4 +181,18 @@ source ~/ww_dotfiles/env.sh
 #export fpath=("$HOME""/ww_dotfiles ""$fpath")
 #autoload -U compinit
 #compinit
-alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
+#alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
+alias yp="/Users/t.shears/play/year-progress/target/release/year-progress"
+yp
+
+# node stuff
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib"
+export CPPFLAGS="-I/usr/local/opt/icu4c/include"
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+
+# helm stuffs
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
+

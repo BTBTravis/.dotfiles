@@ -50,7 +50,7 @@ Plug 'ctrlpvim/ctrlp.vim' " better auto complete
 
 " File searching and buffer managment
 Plug 'moll/vim-bbye' " use :Bdelete to delete buffer without closing window
-Plug 'mileszs/ack.vim' " search nearby files with ag
+"Plug 'mileszs/ack.vim' " search nearby files with ag
 
 " Generic Programming Support
 Plug 'tpope/vim-surround' " <cs'!> to change the surrounding ' to !
@@ -67,9 +67,15 @@ Plug 'mhinz/vim-signify' " show lines changed in working git dir
 
 " Under review
 Plug 'AndrewRadev/splitjoin.vim' " switch statments between single and multiline  <g><S> and <g><J>
-Plug 'SirVer/ultisnips' " snippets engine
+"Plug 'SirVer/ultisnips' " snippets engine
 Plug 'sheerun/vim-polyglot' " syntax highlighting for basically every lang
 Plug 'majutsushi/tagbar'
+
+Plug 'ianks/vim-tsx' " .tsx support
+Plug 'HerringtonDarkholme/yats.vim' " .ts.support
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " typescript support
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete 
+
 "Plug 'jakedouglas/exuberant-ctags'
 
 
@@ -78,6 +84,7 @@ Plug 'majutsushi/tagbar'
 "Plug 'vim-scripts/ReplaceWithRegister' " https://github.com/vim-scripts/ReplaceWithRegister
 
 call plug#end()
+
 
 " Theme
 syntax on
@@ -90,7 +97,7 @@ endif
 "if has('nvim')
     "runtime! python_setup.vim
 "endif
-let g:UltiSnipsExpandTrigger       ='<tab>'
+let g:UltiSnipsExpandTrigger       ='<Tab>'
 let g:UltiSnipsSnippetsDir         = $HOME.'/.config/nvim/UltiSnips/'
 let g:UltiSnipsJumpForwardTrigger  ="<Leader>sn"
 let g:UltiSnipsJumpBackwardTrigger ="<Leader>sp"
@@ -129,9 +136,11 @@ set tags=./tags;$HOME,tags;$HOME
 
 " placeholder magic
 nnoremap <Space><Space> <Esc>/<++<CR>"_c4l
-nnoremap <Space>d <Esc>l/<++<CR>dd
-nnoremap <Space>n <Esc>l/<++<CR>h
-nnoremap <Space>p <Esc>l?<++<CR>h
+nnoremap <Space>n <Esc>l/<++><CR>h
+" always fill p reg with <++>
+:autocmd VimEnter * :call setreg('p', '<++>')
+"nnoremap <Space>d <Esc>l/<++<CR>dd
+"nnoremap <Space>p <Esc>l?<++<CR>h
 
 " js helpers
 vnoremap <Space>c "cy<Esc>oconsole.log('<Esc>"cpa', <Esc>"cpa);<Esc>
@@ -141,18 +150,36 @@ nnoremap <Leader>f :let @" = expand("%")<CR>
 
 " kill files aka remove delete it from disk remove it from args and delete the buffer
 nnoremap <Leader>d :!rm %<CR>:argdelete %<CR>:bd<CR>
-
-noremap <leader>g :new<CR>:read ! ag "
+"noremap <leader>g :new<CR>:read ! ag "
 
 nnoremap <Leader>pb :CtrlPBuffer<CR>
 nnoremap <Leader>pf :CtrlP<CR>
 nnoremap <Leader>pr :CtrlPMRU<CR>
 nnoremap <Leader>pc :CtrlPChange<CR>
+nnoremap <Leader>i <C-i>
+nnoremap <Leader>o <C-o>
+nnoremap <leader>se :setlocal spell spelllang=en<CR>
+nnoremap <leader>sd :setlocal spell spelllang=de<CR>
+nnoremap ss :noh<CR>
 
-vnoremap <Leader>s y:Ack <C-r>=fnameescape(@")<CR><CR>
+nnoremap <Leader>s :new<CR>:read ! rg -i <C-R>"
+"nnoremap <Leader>s :new|0read !rg fnameescape(@")
+"vnoremap <Leader>s y:Ack <C-r>=fnameescape(@")<CR><CR>
 
 " Remap arrow keys to resize window
 nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
+
+function! LookUpDef(word)
+    "echom a:word
+    silent !clear
+    execute "!open https://www.wordnik.com/words/" . a:word
+    "normal !open https://www.wordnik.com/words/a:word
+endfunction
+command! -nargs=* Dic call LookUpDef(<f-args>)
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete_delay', 500)
+silent! so .vimlocal
