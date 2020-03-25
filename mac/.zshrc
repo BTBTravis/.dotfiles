@@ -117,6 +117,8 @@ export LANG=en_US.UTF-8
 
 # add fzf commands <Ctrl + t> for file search, <Ctrl + r> search command history
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # init ruby env on zsh launch
 eval "$(rbenv init -)"
@@ -131,6 +133,8 @@ alias e='$EDITOR'
 #alias ls="test \$(exa --tree --level=2 --long | wc -l) -gt 40 && exa --long --git ||  exa --tree --level=2 --long --git"
 alias l="exa --long"
 alias lt="exa --tree --long --level=2"
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
 #alias ls="exa --tree --level=2 --long"
 #alias ls="test -gt $(exa --tree --level=2 --long --git"
 #alias l "ls -gaFh"
@@ -196,3 +200,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 # helm stuffs
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
+
+PATH="/Users/t.shears/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/t.shears/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/t.shears/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/t.shears/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/t.shears/perl5"; export PERL_MM_OPT;

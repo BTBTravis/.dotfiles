@@ -46,7 +46,9 @@ Plug 'junegunn/goyo.vim' " distraction free writing
 Plug 'scrooloose/nerdcommenter' " comment lines out with <Leader>cc
 Plug 'vimwiki/vimwiki' " power up your personal wiki
 Plug 'scrooloose/nerdtree' " :NERDTree to view file explorer
-Plug 'ctrlpvim/ctrlp.vim' " better auto complete
+" Plug 'ctrlpvim/ctrlp.vim' " better auto complete
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " File searching and buffer managment
 Plug 'moll/vim-bbye' " use :Bdelete to delete buffer without closing window
@@ -67,7 +69,7 @@ Plug 'mhinz/vim-signify' " show lines changed in working git dir
 
 " Under review
 Plug 'AndrewRadev/splitjoin.vim' " switch statments between single and multiline  <g><S> and <g><J>
-"Plug 'SirVer/ultisnips' " snippets engine
+Plug 'SirVer/ultisnips' " snippets engine
 Plug 'sheerun/vim-polyglot' " syntax highlighting for basically every lang
 Plug 'majutsushi/tagbar'
 
@@ -75,6 +77,8 @@ Plug 'ianks/vim-tsx' " .tsx support
 Plug 'HerringtonDarkholme/yats.vim' " .ts.support
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'} " typescript support
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete 
+Plug 'vim-scripts/scratch.vim'
+"Plugin 'posva/vim-vue'
 
 "Plug 'jakedouglas/exuberant-ctags'
 
@@ -121,6 +125,7 @@ endfunction
 
 " easy buffer delete
 nnoremap <Leader>t :call SafeOpenNerdTree()<CR>
+nnoremap <Leader>n :NERDTreeFind<CR>
 nnoremap <Leader>q :Bdelete<CR>
 
 function! SafeOpenNerdTree()
@@ -152,25 +157,44 @@ nnoremap <Leader>f :let @" = expand("%")<CR>
 nnoremap <Leader>d :!rm %<CR>:argdelete %<CR>:bd<CR>
 "noremap <leader>g :new<CR>:read ! ag "
 
-nnoremap <Leader>pb :CtrlPBuffer<CR>
-nnoremap <Leader>pf :CtrlP<CR>
-nnoremap <Leader>pr :CtrlPMRU<CR>
-nnoremap <Leader>pc :CtrlPChange<CR>
+nnoremap <Leader>pb :Buffers<CR>
+nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>pg :GFiles?<CR>
+nnoremap <Leader>pm :Marks<CR>
+nnoremap <Leader>pc :History:<CR>
+nnoremap <Leader>pl :Lines<CR>
+
+" nnoremap <Leader>pc :CtrlPChange<CR>
 nnoremap <Leader>i <C-i>
 nnoremap <Leader>o <C-o>
 nnoremap <leader>se :setlocal spell spelllang=en<CR>
 nnoremap <leader>sd :setlocal spell spelllang=de<CR>
+nnoremap <leader>sn :setlocal nospell<CR>
 nnoremap ss :noh<CR>
 
-nnoremap <Leader>s :new<CR>:read ! rg -i <C-R>"
+"git maps
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff
+
+"nnoremap <Leader>s :new<CR>:read ! rg -i <C-R>"
+nnoremap <Leader>s :Sscratch<CR>gg"_dG:read ! rg -i <C-R>"
 "nnoremap <Leader>s :new|0read !rg fnameescape(@")
 "vnoremap <Leader>s y:Ack <C-r>=fnameescape(@")<CR><CR>
+
+" move 5 lines at a time
+nnoremap <C-J> 5j
+vnoremap <C-J> 5j
+nnoremap <C-K> 5k
+vnoremap <C-K> 5k
 
 " Remap arrow keys to resize window
 nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
+
+" Vimwiki Deliver magic
+:autocmd BufRead Incoming.wiki ! /Users/t.shears/play/vimwiki_deliver/dump.pl --path  /Users/t.shears/vimwiki/Incoming.wiki --apikey jasflai3ef3jefflj38f8809000000000fa --host https://vimwiki-delivery-bot.travisshears.xyz
 
 function! LookUpDef(word)
     "echom a:word
@@ -182,4 +206,9 @@ command! -nargs=* Dic call LookUpDef(<f-args>)
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete_delay', 500)
+
+"open splits to the right and down instead of default
+set splitbelow
+set splitright
+
 silent! so .vimlocal
